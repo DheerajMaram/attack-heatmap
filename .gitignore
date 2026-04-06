@@ -1,0 +1,33 @@
+# Environment
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.pytest-tmp/
+.pytest_cache/
+.pytest_cache_local/
+*.egg-info/
+dist/
+build/
+
+# Generated artifacts (keep .gitkeep placeholders)
+outputs/*.md
+outputs/*.json
+
+# ATT&CK STIX cache (large binary-ish JSON — re-downloaded on demand)
+data/enterprise-attack.json
+
+# Bulk Sigma rules (committed: curated set in sigma/rules/*.yml)
+sigma/rules/sigmahq/
+
+# editor
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

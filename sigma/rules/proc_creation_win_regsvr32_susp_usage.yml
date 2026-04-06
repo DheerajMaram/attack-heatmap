@@ -1,0 +1,34 @@
+title: Suspicious Regsvr32 Execution
+id: 8e2b24c9-4add-46a0-b4bb-0057b4e6187d
+status: test
+description: Detects suspicious Regsvr32 usage for proxy execution of malicious
+    code, a common technique for bypassing application control.
+references:
+    - https://attack.mitre.org/techniques/T1218/010/
+    - https://lolbas-project.github.io/lolbas/Binaries/Regsvr32/
+author: Florian Roth (Nextron Systems), Thomas Patzke
+date: 2019-07-17
+modified: 2023-11-20
+tags:
+    - attack.defense_evasion
+    - attack.t1218.010
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        Image|endswith: '\regsvr32.exe'
+    selection_flags:
+        CommandLine|contains:
+            - '/s '
+            - '-s '
+    selection_network:
+        CommandLine|contains:
+            - 'http://'
+            - 'https://'
+            - '/i:'
+            - '-i:'
+    condition: selection and selection_flags and selection_network
+falsepositives:
+    - Legitimate COM object registration using URLs (rare)
+level: high

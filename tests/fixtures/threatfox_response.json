@@ -1,0 +1,56 @@
+{
+  "query_status": "ok",
+  "data": [
+    {
+      "id": "1",
+      "ioc": "192.168.1.100:4444",
+      "ioc_type": "ip:port",
+      "ioc_type_desc": "Botnet C2 IP:port",
+      "threat_type": "botnet_cc",
+      "threat_type_desc": "Botnet C&C",
+      "malware": "Cobalt Strike",
+      "malware_printable": "Cobalt Strike",
+      "malware_alias": "CobaltStrike",
+      "confidence_level": 90,
+      "first_seen": "2024-01-15 12:00:00 UTC",
+      "last_seen": null,
+      "reporter": "anonymous",
+      "reference": null,
+      "tags": ["cs", "cobalt-strike"]
+    },
+    {
+      "id": "2",
+      "ioc": "bd7be1cf8ede07b6a05c6dcbecd7e4f55ec0fa0ec88ca87fae5ae64cc4c8b97a",
+      "ioc_type": "sha256_hash",
+      "ioc_type_desc": "SHA256 hash of a malware sample",
+      "threat_type": "payload",
+      "threat_type_desc": "Payload delivery",
+      "malware": "Emotet",
+      "malware_printable": "Emotet",
+      "malware_alias": "Geodo",
+      "confidence_level": 75,
+      "first_seen": "2024-01-16 08:30:00 UTC",
+      "last_seen": null,
+      "reporter": "abuse_ch",
+      "reference": "https://threatfox.abuse.ch/ioc/2",
+      "tags": ["emotet", "epoch5"]
+    },
+    {
+      "id": "3",
+      "ioc": "malicious-domain.example.com",
+      "ioc_type": "domain",
+      "ioc_type_desc": "Domain name",
+      "threat_type": "payload_delivery",
+      "threat_type_desc": "Payload delivery",
+      "malware": "AsyncRAT",
+      "malware_printable": "AsyncRAT",
+      "malware_alias": null,
+      "confidence_level": 80,
+      "first_seen": "2024-01-17 14:15:00 UTC",
+      "last_seen": null,
+      "reporter": "community",
+      "reference": null,
+      "tags": ["asyncrat", "rat"]
+    }
+  ]
+}

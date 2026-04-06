@@ -1,0 +1,38 @@
+title: Credential Dumping via LSASS Memory Access
+id: 5ef9853e-4d0e-4a70-846f-a9ca37d876da
+status: test
+description: Detects attempts to access LSASS memory for credential harvesting,
+    a technique used by tools like Mimikatz, Procdump, and Task Manager.
+references:
+    - https://attack.mitre.org/techniques/T1003/001/
+    - https://www.slideshare.net/heirhabarov/hunting-for-credentials-dumping-in-windows-environment
+author: Florian Roth (Nextron Systems), Roberto Rodriguez
+date: 2019-10-14
+modified: 2023-12-01
+tags:
+    - attack.credential_access
+    - attack.t1003.001
+logsource:
+    category: process_access
+    product: windows
+detection:
+    selection:
+        TargetImage|endswith: '\lsass.exe'
+        GrantedAccess|contains:
+            - '0x1010'
+            - '0x1038'
+            - '0x40'
+            - '0x1400'
+            - '0x1fffff'
+    filter_legit:
+        SourceImage|endswith:
+            - '\MsMpEng.exe'
+            - '\taskmgr.exe'
+            - '\lsm.exe'
+            - '\csrss.exe'
+            - '\wininit.exe'
+    condition: selection and not filter_legit
+falsepositives:
+    - AV/EDR products accessing LSASS for monitoring
+    - Some backup software
+level: critical

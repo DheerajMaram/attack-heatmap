@@ -1,0 +1,21 @@
+{
+  "objects": [
+    {
+      "type": "attack-pattern",
+      "id": "attack-pattern--test",
+      "external_references": [
+        { "source_name": "mitre-attack", "external_id": "T1059.001" }
+      ],
+      "x_mitre_detection": "Monitor command-line activity"
+    },
+    {
+      "type": "x-mitre-detection-analytic",
+      "id": "x-mitre-detection-analytic--test",
+      "external_references": [
+        { "source_name": "mitre-attack", "external_id": "AN1234" }
+      ],
+      "x_mitre_technique_id": "T1059.001",
+      "description": "Example analytic"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+# Core
+mitreattack-python>=2.0.0
+requests>=2.31.0
+pyyaml>=6.0.1
+python-dotenv>=1.0.0
+
+# CLI & output
+typer[all]>=0.12.0
+rich>=13.7.0
+
+# Development / testing
+pytest>=8.0.0
+pytest-mock>=3.12.0
+responses>=0.25.0    # mock HTTP calls in tests
